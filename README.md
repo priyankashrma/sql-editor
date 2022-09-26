@@ -9,7 +9,7 @@ Project uses the data-dump by Atlan mentioned in Notion prompt.
 
 ## Page load time-
 
-# GTMetrix - 
+### GTMetrix - 
 Fully loaded time- 1.3s
 First contentful page- 717ms
 
