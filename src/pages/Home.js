@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
@@ -14,10 +14,12 @@ const drawerWidth = 240;
 export default function Home() {
   const [sql, setSql] = useState("");
   const [data, setData] = useState([]);
-  const [textData, setTextData] = useState([]);
+  const [textData, setTextData] = useState("");
   const [tableData, setTableData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async (tableName) => {
+    setLoading(true);
     setSql(`select * from ${tableName}`);
     await fetch(
       `https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/csv/${tableName}.csv`
@@ -29,11 +31,12 @@ export default function Home() {
       });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     readString(textData, {
       worker: true,
       complete: (results) => {
         setTableData(results.data);
+        setLoading(false);
       },
     });
   }, [textData]);
@@ -47,7 +50,7 @@ export default function Home() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            SQL Editor
+            Atlan SQL
           </Typography>
         </Toolbar>
       </AppBar>
@@ -56,6 +59,7 @@ export default function Home() {
         sql={sql}
         data={data}
         setSql={setSql}
+        loading={loading}
         tableData={tableData}
         setTextData={setTextData}
       />

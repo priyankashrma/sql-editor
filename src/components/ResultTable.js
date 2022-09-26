@@ -54,6 +54,9 @@ export default function DataTable({ tableData, onChange }) {
         rowsPerPageOptions={[5]}
         checkboxSelection
         selectionModel={selection}
+        localeText={{
+          noRowsLabel: "Select any table to start",
+        }}
         onSelectionModelChange={(selection) => {
           setSelection(selection);
         }}

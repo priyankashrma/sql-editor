@@ -4,13 +4,21 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import { Wrapper } from "../styles";
 import Editor from "../components/Editor";
 import ResultTable from "../components/ResultTable";
 import RightSideBar from "../components/RightSideBar";
 
-const MainContent = ({ tableData, data, sql, setSql, setTextData }) => {
+const MainContent = ({
+  tableData,
+  data,
+  sql,
+  setSql,
+  loading,
+  setTextData,
+}) => {
   const splitData = data.length > 0 && data.split(/\r?\n/);
   const cols = splitData[0];
 
@@ -19,7 +27,9 @@ const MainContent = ({ tableData, data, sql, setSql, setTextData }) => {
   function onFilter(value) {
     if (value) {
       const rows = splitData.slice(1, splitData.length);
-      const filteredRows = rows.filter((a) => a.includes(value)).join("\n");
+      const filteredRows = rows
+        .filter((a) => a.toLowerCase().includes(value.toLowerCase()))
+        .join("\n");
       setTextData(cols + "\n" + filteredRows);
     } else {
       setTextData(data);
@@ -61,11 +71,22 @@ const MainContent = ({ tableData, data, sql, setSql, setTextData }) => {
               </Button>
             )}
           </div>
-
-          <ResultTable tableData={tableData} onChange={onFilter} />
+          {loading ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <CircularProgress color="success" />
+            </div>
+          ) : (
+            <ResultTable tableData={tableData} onChange={onFilter} />
+          )}
         </Grid>
         <Grid item xs={2}>
-          <RightSideBar cols={cols} />
+          <RightSideBar cols={cols} setSql={setSql} setTextData={setTextData} />
         </Grid>
       </Grid>
     </Box>
