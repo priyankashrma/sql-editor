@@ -12,6 +12,8 @@ Project uses the data-dump by Atlan mentioned in Notion prompt.
 ### GTMetrix - 
 Fully loaded time- 1.3s
 First contentful page- 717ms
+![image](https://user-images.githubusercontent.com/58728994/192352460-0697d311-6640-4659-b0af-b29e9b4f42e6.png)
+
 
 # Getting Started with Create React App
 
