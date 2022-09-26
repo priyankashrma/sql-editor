@@ -8,7 +8,9 @@ prism-react-renderer (for highlighting token in SQL Editor)
 Project uses the data-dump by Atlan mentioned in Notion prompt.
 
 ## Page load time-
-GTMetrix - Fully loaded time- 1.3s
+
+# GTMetrix - 
+Fully loaded time- 1.3s
 First contentful page- 717ms
 
 # Getting Started with Create React App
