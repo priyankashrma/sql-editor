@@ -1,8 +1,11 @@
 This is an project built for Atlan Frontend Challenge using React and Material UI.
 
 ## Other libraries used-
+
 react-paparse (for parsing data returned by csv)
+
 react-simple-code-editor (for SQL Editor box)
+
 prism-react-renderer (for highlighting token in SQL Editor)
 
 Project uses the data-dump by Atlan mentioned in Notion prompt.
