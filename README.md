@@ -1,15 +1,22 @@
 This is an project built for Atlan Frontend Challenge using React and Material UI.
 
-Other libraries used-
+## Other libraries used-
+
 react-paparse (for parsing data returned by csv)
+
 react-simple-code-editor (for SQL Editor box)
+
 prism-react-renderer (for highlighting token in SQL Editor)
 
 Project uses the data-dump by Atlan mentioned in Notion prompt.
 
-Page load time-
-GTMetrix- Fully loaded time- 1.3s
+## Page load time-
+
+### GTMetrix - 
+Fully loaded time- 1.3s
 First contentful page- 717ms
+![image](https://user-images.githubusercontent.com/58728994/192352460-0697d311-6640-4659-b0af-b29e9b4f42e6.png)
+
 
 # Getting Started with Create React App
 
